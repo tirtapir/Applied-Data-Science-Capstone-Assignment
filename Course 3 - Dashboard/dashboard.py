@@ -20,6 +20,8 @@ app.layout = html.Div(children=[html.H1('SpaceX Launch Records Dashboard',
                                                'font-size': 40}),
                                 # TASK 1: Add a dropdown list to enable Launch Site selection
                                 # The default select value is for ALL sites
+                                # dcc.Dropdown(id='site-dropdown',...)
+                                
                                 dcc.Dropdown(id='site-dropdown',
                                 options=[
                                     {'label': 'All Sites', 'value': 'All Sites'},
@@ -34,13 +36,18 @@ app.layout = html.Div(children=[html.H1('SpaceX Launch Records Dashboard',
                                 ),
                                 html.Br(),
 
+                            
+
                                 # TASK 2: Add a pie chart to show the total successful launches count for all sites
                                 # If a specific launch site was selected, show the Success vs. Failed counts for the site
                                 html.Div(dcc.Graph(id='success-pie-chart')),
                                 html.Br(),
 
                                 html.P("Payload range (Kg):"),
+
+
                                 # TASK 3: Add a slider to select payload range
+                                #dcc.RangeSlider(id='payload-slider',...)
                                 dcc.RangeSlider(id='payload-slider',
                                 min=0,
                                 max=10000,
@@ -48,9 +55,12 @@ app.layout = html.Div(children=[html.H1('SpaceX Launch Records Dashboard',
                                 marks={i: '{}'.format(i) for i in range(0, 10001, 1000)},
                                 value=[min_payload, max_payload]),
 
+
                                 # TASK 4: Add a scatter chart to show the correlation between payload and launch success
                                 html.Div(dcc.Graph(id='success-payload-scatter-chart')),
                                 ])
+                                
+
 
 # TASK 2:
 # Add a callback function for `site-dropdown` as input, `success-pie-chart` as output
